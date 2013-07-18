@@ -270,7 +270,7 @@ function fillListDetails_FieldAgent(id, groupName) {
 	    obj.groupName =   groupName;
 	    var htmlVar = $("#quipuExampleListDetailsFieldAgentTemplate").render(obj);  
 		$("#quipuExGenDashboardListDetails").html(htmlVar);
-		$("#quipuExGenDashboardListDetails #groupsstatstable").dataTable(custom.jqueryDataTableLayout.basic());
+		//$("#quipuExGenDashboardListDetails #groupsstatstable").dataTable(custom.jqueryDataTableLayout.basic());
 	}
     executeAjaxRequest(url, 'GET', "", successFunction, formErrorFunction);
 }

@@ -10565,7 +10565,6 @@ $(document).ready(function() {
 	<div class="dashboard">
 		
 		<h2 class="heading">{{=role.name}}</h2>
-		<h1 id="quipuExGenDashboardRole" class="subtitle"></h1>
 		<div class="breadcrumb">
 			{{#if root.programDir.fullName !== ''}}
 				{{#if root.programDir.top}}
@@ -10596,6 +10595,7 @@ $(document).ready(function() {
 				{{/if}}
 			{{/if}}
 		</div>
+		<h1 id="quipuExGenDashboardRole" class="subtitle"></h1>
 		<div class="cont">
 			<div class="list">
 				<span>{{=role.childname+" List"}}</span>
@@ -10619,32 +10619,32 @@ $(document).ready(function() {
 
 
 <script id="quipuExampleRoleFieldAgentTemplate" type="text/x-jquery-tmpl">
-    {{=$ctx.doI18N("employee")}}: {{=name}}
+    {{=$ctx.doI18N("dashboard.employee")}} {{=name}}
 </script>
 
 <script id="quipuExampleRoleStatsTemplate" type="text/x-jquery-tmpl">
 	{{#if dataRows.length > 0}}
     {{#each dataRows}}
     <div class="column">
-        <div><label>{{=$ctx.doI18N("Currency")}}</label><span>{{=Currency}}</span></div>
-        <div><label>{{=$ctx.doI18N("activeClients")}}</label><span>{{=$ctx.number(activeClients)}}</span></div>
-        <div><label>{{=$ctx.doI18N("activeLoans")}}</label><span>{{=$ctx.number(activeLoans)}}</span></div>
-        <div><label>{{=$ctx.doI18N("disbursedAmount")}}</label><span>{{=$ctx.decimal(disbursedAmount, 2)}}</span></div>
-        <div><label>{{=$ctx.doI18N("loanOutstandingAmount")}}</label><span>{{=$ctx.decimal(loanOutstandingAmount, 2)}}</span></div>
-        <div><label>{{=$ctx.doI18N("loanOutstandingPC")}}</label><span>{{=$ctx.decimal(loanOutstandingPC, 2)}} %</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.currency")}}</label><span>{{=Currency}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.activeClients")}}</label><span>{{=$ctx.number(activeClients)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.activeLoans")}}</label><span>{{=$ctx.number(activeLoans)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.disbursedAmount")}}</label><span>{{=$ctx.decimal(disbursedAmount, 2)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.loanOutstandingAmount")}}</label><span>{{=$ctx.decimal(loanOutstandingAmount, 2)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.loanOutstandingPC")}}</label><span>{{=$ctx.decimal(loanOutstandingPC, 2)}} %</span></div>
     </div>
     <div class="column">
-        <div><label>{{=$ctx.doI18N("LoanPaidInAdvance")}}</label><span>{{=$ctx.decimal(LoanPaidInAdvance, 2)}}</span></div>
-        <div><label>{{=$ctx.doI18N("portfolioAtRisk")}}</label><span>{{=$ctx.decimal(portfolioAtRisk, 2)}}</span></div>
-        <div><label>{{=$ctx.doI18N("portfolioAtRiskPC")}}</label><span>{{=$ctx.decimal(portfolioAtRiskPC, 2)}} %</span></div>
-        <div><label>{{=$ctx.doI18N("clientsInDefault")}}</label><span>{{=$ctx.number(clientsInDefault)}}</span></div>
-        <div><label>{{=$ctx.doI18N("clientsInDefaultPC")}}</label><span>{{=$ctx.decimal(clientsInDefaultPC, 2)}} %</span></div>
-        <div><label>{{=$ctx.doI18N("averageLoanAmount")}}</label><span>{{=$ctx.decimal(averageLoanAmount, 2)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.loanPaidInAdvance")}}</label><span>{{=$ctx.decimal(LoanPaidInAdvance, 2)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.portfolioAtRisk")}}</label><span>{{=$ctx.decimal(portfolioAtRisk, 2)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.portfolioAtRiskPC")}}</label><span>{{=$ctx.decimal(portfolioAtRiskPC, 2)}} %</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.clientsInDefault")}}</label><span>{{=$ctx.number(clientsInDefault)}}</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.clientsInDefaultPC")}}</label><span>{{=$ctx.decimal(clientsInDefaultPC, 2)}} %</span></div>
+        <div><label>{{=$ctx.doI18N("dashboard.averageLoanAmount")}}</label><span>{{=$ctx.decimal(averageLoanAmount, 2)}}</span></div>
     </div>
     {{/each}}
     {{#else}}
     <div>
-    	<span>No hay información para este empleado</span>
+    	<span>{{=$ctx.doI18N("dashboard.noinfo")}}</span>
     </div>
     {{/if}}
 </script>
@@ -10674,18 +10674,18 @@ $(document).ready(function() {
 			<span>{{=groupName}}</span>
 		</div>
 		<div class="infcont">
-		    <table id='groupsstatstable' width='100%' class="display" width="100%" >
+		    <table id='groupsstatstable' width='100%' class="pretty displayschedule" width="100%" >
 		        <thead>
 		            <tr>
-		                <th>{{=$ctx.doI18N("loanCycleNo")}}</th>
-		                <th>{{=$ctx.doI18N("clientDisplayName")}}</th>
-		                <th>{{=$ctx.doI18N("Currency")}}</th>
-		                <th>{{=$ctx.doI18N("loanRepaidAmount")}}</th>
-		                <th>{{=$ctx.doI18N("loanOutstandingAmount")}}</th>
-		                <th>{{=$ctx.doI18N("LoanPaidInAdvance")}}</th>
-		                <th>{{=$ctx.doI18N("loanInArrearsAmount")}}</th>
-		                <th>{{=$ctx.doI18N("inDefault")}}</th>
-		                <th>{{=$ctx.doI18N("portfolioAtRisk")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.loanCycleNo")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.clientDisplayName")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.currency")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.loanRepaidAmount")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.loanOutstandingAmount")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.loanPaidInAdvance")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.loanInArrearsAmount")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.inDefault")}}</th>
+		                <th>{{=$ctx.doI18N("dashboard.table.portfolioAtRisk")}}</th>
 		            </tr>
 		        </thead>
 		        <tbody>

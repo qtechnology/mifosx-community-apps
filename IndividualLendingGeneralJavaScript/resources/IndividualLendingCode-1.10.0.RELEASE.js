@@ -3942,7 +3942,6 @@ function transferClients(divContainer, groupId) {
 	delete serializedArray.selectedGroupExternalId;
 	delete serializedArray.selectedGroupActivationDate;
 	delete serializedArray.selectedGroupStaffName;
-
 	var newFormData = JSON.stringify(serializedArray);
 
 	var successFunction =  function(data, textStatus, jqXHR) {
@@ -8326,6 +8325,22 @@ function repopulateOpenPopupDialogWithFormViewData(data, postUrl, submitType, ti
 		} else if (data.chargeCalculationType.id == "2") {
 			$("label[for='amount']").text(doI18N('label.percentage'));
 		}
+	}
+
+	if (templateSelector === "#transferClientsBetweenBranchesFormTemplate") {
+		$("#destinationOfficeId").change(function(e){
+			var selectedOfficeId = $(this).val();
+			var officeIdChangeSuccess = function(staffData, textStatus, jqXHR){
+				var tempObject = new Object();
+				tempObject['officeId'] = selectedOfficeId;
+				tempObject.officeOptions = offices;
+				tempObject.staffOptions = staffData;
+				tempObject.clientOfficeId = currentClientOffice;
+				console.log(tempObject);
+				repopulateOpenPopupDialogWithFormViewData(tempObject, postUrl, submitType, titleCode, templateSelector, width, height, saveSuccessFunction);
+			}
+			executeAjaxRequest("staff?staffInOfficeHierarchy=true&fields=id,displayName&officeId=" + selectedOfficeId, "GET", "", officeIdChangeSuccess, formErrorFunction);
+		});
 	}
 
 	if (templateSelector === "#attendanceFormTemplate") {

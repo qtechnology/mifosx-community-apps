@@ -7899,6 +7899,22 @@ function repopulateOpenPopupDialogWithFormViewData(data, postUrl, submitType, ti
 		}
 	}
 
+	if (templateSelector === "#transferClientsBetweenBranchesFormTemplate") {
+		$("#destinationOfficeId").change(function(e){
+			var selectedOfficeId = $(this).val();
+			var officeIdChangeSuccess = function(staffData, textStatus, jqXHR){
+				var tempObject = new Object();
+				tempObject['officeId'] = selectedOfficeId;
+				tempObject.officeOptions = offices;
+				tempObject.staffOptions = staffData;
+				tempObject.clientOfficeId = currentClientOffice;
+				console.log(tempObject);
+				repopulateOpenPopupDialogWithFormViewData(tempObject, postUrl, submitType, titleCode, templateSelector, width, height, saveSuccessFunction);
+			}
+			executeAjaxRequest("staff?staffInOfficeHierarchy=true&fields=id,displayName&officeId=" + selectedOfficeId, "GET", "", officeIdChangeSuccess, formErrorFunction);
+		});
+	}
+
 	if (templateSelector === "#attendanceFormTemplate") {
 		var availableDate = function(date) {
   

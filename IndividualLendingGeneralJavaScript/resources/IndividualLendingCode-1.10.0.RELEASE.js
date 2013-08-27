@@ -8400,7 +8400,6 @@ function repopulateOpenPopupDialogWithFormViewData(data, postUrl, submitType, ti
 				tempObject.officeOptions = offices;
 				tempObject.staffOptions = staffData;
 				tempObject.clientOfficeId = currentClientOffice;
-				console.log(tempObject);
 				repopulateOpenPopupDialogWithFormViewData(tempObject, postUrl, submitType, titleCode, templateSelector, width, height, saveSuccessFunction);
 			}
 			executeAjaxRequest("staff?staffInOfficeHierarchy=true&fields=id,displayName&officeId=" + selectedOfficeId, "GET", "", officeIdChangeSuccess, formErrorFunction);

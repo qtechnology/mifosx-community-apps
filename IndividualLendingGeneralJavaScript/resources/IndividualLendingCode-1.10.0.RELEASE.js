@@ -3051,7 +3051,6 @@ function showILClient(clientId) {
 						var templateSelector = "#proposeClientTransferFormTemplate";
 						var width = 500; 
 						var height = 325;
-
 						var saveSuccessFunction = function(data, textStatus, jqXHR) {
 							$("#dialog-form").dialog("close");
 							showILClient(clientId);

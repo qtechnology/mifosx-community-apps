@@ -2933,10 +2933,7 @@ function showILClient(clientId) {
 
 					$('.clientclosebtn').button({icons: {primary: "ui-icon-document"}}).click(function(e) {
 						var clientClose = 'close';
-<<<<<<< HEAD
 						var getUrl = "clients/template?command=close";
-=======
->>>>>>> cleaning up UI for transfers functionality
 						var postUrl = 'clients/' + clientId + '?command=' + clientClose;
 						var templateSelector = "#clientCloseTemplate";
 						var width = 400; 
@@ -3464,7 +3461,7 @@ function showGroup(groupId){
 			});
 
 			// bind click listeners to buttons.
-			if (jQuery.MifosXUI.showTask("ADDGROUP") /*|| jQuery.MifosXUI.showTask("EDITGROUP")*/) {
+			if (jQuery.MifosXUI.showTask("ADDGROUP")) {
 				$('.editstandardgroupbtn').button({icons: {primary: "ui-icon-pencil"}}).click(function(e) {
 					var linkId = this.id;
 					var groupId = linkId.replace("editstandardgroupbtn", "");
@@ -3472,7 +3469,7 @@ function showGroup(groupId){
 					e.preventDefault();
 				});
 			}
-			if (jQuery.MifosXUI.showTask("ADDTEVIGROUP")/* || jQuery.MifosXUI.showTask("EDITTEVIGROUP")*/) {
+			if (jQuery.MifosXUI.showTask("ADDTEVIGROUP")) {
 				$('.edittevigroupbtn').button({icons: {primary: "ui-icon-pencil"}}).click(function(e) {
 					var linkId = this.id;
 					var groupId = linkId.replace("edittevigroupbtn", "");

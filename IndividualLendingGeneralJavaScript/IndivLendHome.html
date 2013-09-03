@@ -1537,7 +1537,6 @@ $(document).ready(function() {
 		{{/if}}
 		<button id="deletegroupbtn{{=id}}" class="deletegroupbtn">{{=$ctx.doI18N("label.group.delete")}}</button>
 	{{/if}}
-
 		{{#if $ctx.showTask("AssociateClient")}}
         <button id="associateclientbtn{{=id}}" class="associateclientbtn">{{=$ctx.doI18N("label.group.associate.clients")}}</button>
         {{/if}}
@@ -12633,7 +12632,6 @@ $(document).ready(function() {
 </script>
 
 <script id="addrestelephoneTemplate" type="text/x-jquery-tmpl">
-
 	{{#if displayMode === "view"}}
 		<table width="100%">
 			<tr>

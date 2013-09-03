@@ -7,7 +7,6 @@ inDevelopmentTasks = ["CENTERSMENU", "COLLECTIONSHEETMENU", "CHECKERMENU", "SAVI
                       "VIEWSAVINGPRODUCTS", "ADDSAVINGPRODUCT", "VIEWSAVINGACCOUNTS", "ADDSAVINGACCOUNT",
                       "VIEWCONFIGURATION", "MANAGEPERMISSIONS", "CLOSEASRESCHEDULEDLOAN",
                       "ADDSAVINGACCOUNT","ADDGROUP","TRANSFERCLIENTS", "READMIXREPORT"];
-
 //This does know about Mifos X Permission checking - each piece of functionality needs to be linked to a Mifos X permission
 taskPermissionsMatrix = {
 		DASHBOARDSEARCH: ["DASHBOARDSEARCH"],

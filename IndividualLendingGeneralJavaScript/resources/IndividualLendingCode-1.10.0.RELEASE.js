@@ -3163,10 +3163,7 @@ function showILClient(clientId) {
 
 					$('.clientclosebtn').button({icons: {primary: "ui-icon-document"}}).click(function(e) {
 						var clientClose = 'close';
-<<<<<<< HEAD
 						var getUrl = "clients/template?command=close";
-=======
->>>>>>> cleaning up UI for transfers functionality
 						var postUrl = 'clients/' + clientId + '?command=' + clientClose;
 						var templateSelector = "#clientCloseTemplate";
 						var width = 400; 

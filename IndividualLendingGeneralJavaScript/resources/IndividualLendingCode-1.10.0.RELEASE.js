@@ -3691,7 +3691,7 @@ function showGroup(groupId){
 			});
 
 			// bind click listeners to buttons.
-			if (jQuery.MifosXUI.showTask("ADDGROUP") /*|| jQuery.MifosXUI.showTask("EDITGROUP")*/) {
+			if (jQuery.MifosXUI.showTask("ADDGROUP")) {
 				$('.editstandardgroupbtn').button({icons: {primary: "ui-icon-pencil"}}).click(function(e) {
 					var linkId = this.id;
 					var groupId = linkId.replace("editstandardgroupbtn", "");
@@ -3699,7 +3699,7 @@ function showGroup(groupId){
 					e.preventDefault();
 				});
 			}
-			if (jQuery.MifosXUI.showTask("ADDTEVIGROUP")/* || jQuery.MifosXUI.showTask("EDITTEVIGROUP")*/) {
+			if (jQuery.MifosXUI.showTask("ADDTEVIGROUP")) {
 				$('.edittevigroupbtn').button({icons: {primary: "ui-icon-pencil"}}).click(function(e) {
 					var linkId = this.id;
 					var groupId = linkId.replace("edittevigroupbtn", "");

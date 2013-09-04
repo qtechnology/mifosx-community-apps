@@ -3163,7 +3163,10 @@ function showILClient(clientId) {
 
 					$('.clientclosebtn').button({icons: {primary: "ui-icon-document"}}).click(function(e) {
 						var clientClose = 'close';
+<<<<<<< HEAD
 						var getUrl = "clients/template?command=close";
+=======
+>>>>>>> cleaning up UI for transfers functionality
 						var postUrl = 'clients/' + clientId + '?command=' + clientClose;
 						var templateSelector = "#clientCloseTemplate";
 						var width = 400; 
@@ -8389,21 +8392,6 @@ function repopulateOpenPopupDialogWithFormViewData(data, postUrl, submitType, ti
 		} else if (data.chargeCalculationType.id == "2") {
 			$("label[for='amount']").text(doI18N('label.percentage'));
 		}
-	}
-
-	if (templateSelector === "#transferClientsBetweenBranchesFormTemplate") {
-		$("#destinationOfficeId").change(function(e){
-			var selectedOfficeId = $(this).val();
-			var officeIdChangeSuccess = function(staffData, textStatus, jqXHR){
-				var tempObject = new Object();
-				tempObject['officeId'] = selectedOfficeId;
-				tempObject.officeOptions = offices;
-				tempObject.staffOptions = staffData;
-				tempObject.clientOfficeId = currentClientOffice;
-				repopulateOpenPopupDialogWithFormViewData(tempObject, postUrl, submitType, titleCode, templateSelector, width, height, saveSuccessFunction);
-			}
-			executeAjaxRequest("staff?staffInOfficeHierarchy=true&fields=id,displayName&officeId=" + selectedOfficeId, "GET", "", officeIdChangeSuccess, formErrorFunction);
-		});
 	}
 
 	if (templateSelector === "#attendanceFormTemplate") {

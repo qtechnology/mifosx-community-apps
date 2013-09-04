@@ -3084,6 +3084,44 @@ function showILClient(clientId) {
 						}
 						
 						popupDialogWithFormView(getUrl, postUrl, 'POST', "dialog.title.transfer.clients", templateSelector, width, height,  saveSuccessFunction);
+						popupDialogWithFormView("", postUrl, 'POST', "dialog.title.transfer.clients", templateSelector, width, height,  saveSuccessFunction);
+						e.preventDefault();
+					});
+
+					$('.rejectClientTransferbtn').button({icons: {primary: "ui-icon-closethick"}}).click(function(e) {
+						var linkId = this.id;
+						var officeId = linkId.replace("rejectClientTransferbtn", "");
+						currentClientOffice = officeId;
+						var postUrl = 'clients/' + clientId + '?command=rejectTransfer';
+						var templateSelector = "#rejectClientTransferFormTemplate";
+						var width = 500; 
+						var height = 325;
+
+						var saveSuccessFunction = function(data, textStatus, jqXHR) {
+							$("#dialog-form").dialog("close");
+							showILClient(clientId);
+						}
+						
+						popupDialogWithFormView("", postUrl, 'POST', "dialog.title.transfer.clients", templateSelector, width, height,  saveSuccessFunction);
+						e.preventDefault();
+					});
+
+					$('.withdrawClientTransferbtn').button({icons: {primary: "ui-icon-arrowrefresh-1-e"}}).click(function(e) {
+						var linkId = this.id;
+						var officeId = linkId.replace("undoClientTransferbtn", "");
+						currentClientOffice = officeId;
+						var postUrl = 'clients/' + clientId + '?command=withdrawTransfer';
+						var templateSelector = "#rejectClientTransferFormTemplate";
+						var width = 500; 
+						var height = 325;
+
+						var saveSuccessFunction = function(data, textStatus, jqXHR) {
+							$("#dialog-form").dialog("close");
+							showILClient(clientId);
+						}
+						
+						popupDialogWithFormView("", postUrl, 'POST', "dialog.title.transfer.clients", templateSelector, width, height,  saveSuccessFunction);
+>>>>>>> cleaning up UI for transfers functionality
 						e.preventDefault();
 					});
 
@@ -3125,6 +3163,7 @@ function showILClient(clientId) {
 
 					$('.clientclosebtn').button({icons: {primary: "ui-icon-document"}}).click(function(e) {
 						var clientClose = 'close';
+						var getUrl = "clients/template?command=close";
 						var postUrl = 'clients/' + clientId + '?command=' + clientClose;
 						var templateSelector = "#clientCloseTemplate";
 						var width = 400; 

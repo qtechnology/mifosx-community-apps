@@ -7419,6 +7419,8 @@ function setBasicAuthKey(logonDivName, username, password)
 
 	var url = "authentication?username=" + username + "&password=" + password;
 	var successFunction = function(data, textStatus, jqXHR) { 
+					if(tenantIdentifier.toUpperCase() === 'TEVI')
+						applicationProfile = tenantIdentifier
 					base64 = data.base64EncodedAuthenticationKey; 
 					currentUser = data.userId;
 					currentUserName = data.username;
@@ -7442,7 +7444,7 @@ function setBasicAuthKey(logonDivName, username, password)
 	        			handleXhrError(jqXHR, textStatus, errorThrown, "#formErrorsTemplate", "#formerrors");
 					return true;
 				};
-
+	
 	executeAjaxRequest(url, 'POST', "", successFunction, errorFunction);
 }
 

@@ -3121,7 +3121,6 @@ function showILClient(clientId) {
 						}
 						
 						popupDialogWithFormView("", postUrl, 'POST', "dialog.title.transfer.clients", templateSelector, width, height,  saveSuccessFunction);
->>>>>>> cleaning up UI for transfers functionality
 						e.preventDefault();
 					});
 
